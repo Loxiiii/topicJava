@@ -18,4 +18,10 @@ public class CourseService {
         course.setTopic(topic);
         return courseRepository.save(course);
     }
+
+    public Course addCourseByTopicName(Course course, String name) {
+        Topic t = topicService.findByName(name).get(0);
+        course.setTopic(t);
+        return courseRepository.save(course);
+    }
 }
